@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>급여대장 미리보기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f4f7f9;
+        }
+        .message-container {
+            width: 100%;
+            max-width: 375px; /* Typical phone width */
+            padding: 1rem;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+        .chat-bubble {
+            background-color: #ffe633;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            position: relative;
+            max-width: 80%;
+            margin-left: auto;
+            word-wrap: break-word;
+        }
+        .chat-bubble::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 0.5rem solid transparent;
+            border-left-color: #ffe633;
+            border-right: 0;
+            margin-top: -0.5rem;
+            margin-right: -0.4rem;
+        }
+        .btn-link {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+        .hidden-content {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeInAnimation 0.5s ease-in;
+        }
+        @keyframes fadeInAnimation {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen p-4 flex flex-col items-center">
+
+    <!-- 모바일 화면 목업 -->
+    <div class="relative w-full h-full max-w-sm bg-gray-200 rounded-3xl shadow-xl overflow-hidden flex flex-col">
+        <!-- 메시지 컨테이너 (초기 화면) -->
+        <div id="message-mockup" class="w-full bg-white px-4 py-8 flex flex-col items-center justify-center">
+            <!-- 채팅 버블 -->
+            <div class="bg-yellow-300 rounded-xl p-4 w-11/12 max-w-xs shadow-md">
+                <p class="text-sm text-gray-800">
+                    안녕하세요, 홍길동님.<br>
+                    2025년 9월 급여대장이 발행되었어요.
+                </p>
+                <div id="check-payroll-btn" class="btn-link mt-4 text-sm font-semibold text-gray-800 hover:bg-gray-50 transition">
+                    급여대장 확인하기
+                </div>
+            </div>
+        </div>
+
+        <!-- 급여대장 미리보기 화면 (숨김) -->
+        <div id="payroll-table-view" class="hidden-content w-full h-full p-4 overflow-y-auto">
+            <main class="w-full bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                <!-- 헤더 -->
+                <header class="w-full text-center p-4 border-b border-gray-200">
+                    <h1 class="text-lg font-bold text-gray-800">2025년 9월분 급여대장</h1>
+                    <h2 class="text-sm font-semibold text-gray-600 mt-1">심플솔루션 (4247200353)</h2>
+                </header>
+
+                <div class="flex flex-col p-4 space-y-4">
+                    <!-- 기본급여 및 제수당 카드 -->
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-md font-bold text-gray-800 border-b pb-2 mb-2">기본급여 및 제수당</h3>
+                        <div class="flex flex-col space-y-1 text-sm text-gray-700">
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">기본급</span>
+                                <span>5,000,000</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">상여</span>
+                                <span>0</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">지급합계</span>
+                                <span class="font-bold text-gray-900">5,000,000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 공제액 카드 -->
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-md font-bold text-gray-800 border-b pb-2 mb-2">공제액</h3>
+                        <div class="flex flex-col space-y-1 text-sm text-gray-700">
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">국민연금</span>
+                                <span>225,000</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">건강보험</span>
+                                <span>177,250</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">고용보험</span>
+                                <span>45,000</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">소득세</span>
+                                <span>335,470</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">지방소득세</span>
+                                <span>33,540</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                                <span class="font-medium">공제합계</span>
+                                <span class="font-bold text-gray-900">839,210</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 최종 지급액 카드 -->
+                    <div class="bg-blue-100 p-4 rounded-lg shadow-sm">
+                        <h3 class="text-md font-bold text-blue-800 border-b border-blue-200 pb-2 mb-2">최종 지급액</h3>
+                        <div class="flex justify-between items-center text-lg font-bold text-blue-800 py-1">
+                            <span>차인 지급액</span>
+                            <span>4,160,790원</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('check-payroll-btn').addEventListener('click', function() {
+            document.getElementById('message-mockup').classList.add('hidden-content');
+            const payrollView = document.getElementById('payroll-table-view');
+            payrollView.classList.remove('hidden-content');
+            payrollView.classList.add('fade-in');
+        });
+    </script>
+
+</body>
+</html>
