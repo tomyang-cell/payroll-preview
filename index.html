@@ -13,7 +13,7 @@
         }
         .message-container {
             width: 100%;
-            max-width: 375px; /* Typical phone width */
+            max-width: 375px;
             padding: 1rem;
             box-sizing: border-box;
             background-color: #fff;
@@ -90,62 +90,138 @@
                 </header>
 
                 <div class="flex flex-col p-4 space-y-4">
-                    <!-- 기본급여 및 제수당 카드 -->
-                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                        <h3 class="text-md font-bold text-gray-800 border-b pb-2 mb-2">기본급여 및 제수당</h3>
-                        <div class="flex flex-col space-y-1 text-sm text-gray-700">
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+
+                    <!-- 근로소득 섹션 (2명) -->
+                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner">
+                        <h3 class="text-md font-bold text-gray-800 mb-2">근로소득 (2명)</h3>
+                        
+                        <!-- 근로소득 첫 번째 직원 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <div class="text-sm font-bold border-b pb-2 mb-2">김근로</div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
                                 <span class="font-medium">기본급</span>
-                                <span>5,000,000</span>
+                                <span>2,500,000원</span>
                             </div>
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
-                                <span class="font-medium">상여</span>
-                                <span>0</span>
-                            </div>
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
-                                <span class="font-medium">지급합계</span>
-                                <span class="font-bold text-gray-900">5,000,000</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 공제액 카드 -->
-                    <div class="bg-gray-50 p-4 rounded-lg shadow-sm">
-                        <h3 class="text-md font-bold text-gray-800 border-b pb-2 mb-2">공제액</h3>
-                        <div class="flex flex-col space-y-1 text-sm text-gray-700">
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
-                                <span class="font-medium">국민연금</span>
-                                <span>225,000</span>
-                            </div>
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
-                                <span class="font-medium">건강보험</span>
-                                <span>177,250</span>
-                            </div>
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
-                                <span class="font-medium">고용보험</span>
-                                <span>45,000</span>
-                            </div>
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
-                                <span class="font-medium">소득세</span>
-                                <span>335,470</span>
-                            </div>
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
-                                <span class="font-medium">지방소득세</span>
-                                <span>33,540</span>
-                            </div>
-                            <div class="flex justify-between items-center py-1 border-b border-gray-200 last:border-b-0">
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
                                 <span class="font-medium">공제합계</span>
-                                <span class="font-bold text-gray-900">839,210</span>
+                                <span>250,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm font-bold text-blue-800 border-t mt-2 pt-2">
+                                <span class="font-medium">차인 지급액</span>
+                                <span>2,250,000원</span>
+                            </div>
+                        </div>
+
+                        <!-- 근로소득 두 번째 직원 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-sm font-bold border-b pb-2 mb-2">박근로</div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">기본급</span>
+                                <span>3,000,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">공제합계</span>
+                                <span>300,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm font-bold text-blue-800 border-t mt-2 pt-2">
+                                <span class="font-medium">차인 지급액</span>
+                                <span>2,700,000원</span>
                             </div>
                         </div>
                     </div>
 
+                    <!-- 사업소득 섹션 (3명) -->
+                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner">
+                        <h3 class="text-md font-bold text-gray-800 mb-2">사업소득 (3명)</h3>
+
+                        <!-- 사업소득 첫 번째 직원 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <div class="text-sm font-bold border-b pb-2 mb-2">김사업</div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">기본급</span>
+                                <span>1,500,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">공제합계</span>
+                                <span>45,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm font-bold text-blue-800 border-t mt-2 pt-2">
+                                <span class="font-medium">차인 지급액</span>
+                                <span>1,455,000원</span>
+                            </div>
+                        </div>
+                        
+                        <!-- 사업소득 두 번째 직원 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm mb-4">
+                            <div class="text-sm font-bold border-b pb-2 mb-2">이사업</div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">기본급</span>
+                                <span>1,800,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">공제합계</span>
+                                <span>54,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm font-bold text-blue-800 border-t mt-2 pt-2">
+                                <span class="font-medium">차인 지급액</span>
+                                <span>1,746,000원</span>
+                            </div>
+                        </div>
+
+                        <!-- 사업소득 세 번째 직원 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-sm font-bold border-b pb-2 mb-2">최사업</div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">기본급</span>
+                                <span>2,000,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">공제합계</span>
+                                <span>60,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm font-bold text-blue-800 border-t mt-2 pt-2">
+                                <span class="font-medium">차인 지급액</span>
+                                <span>1,940,000원</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 기타소득 섹션 (1명) -->
+                    <div class="bg-gray-100 p-4 rounded-lg shadow-inner">
+                        <h3 class="text-md font-bold text-gray-800 mb-2">기타소득 (1명)</h3>
+                        
+                        <!-- 기타소득 첫 번째 직원 -->
+                        <div class="bg-white p-4 rounded-lg shadow-sm">
+                            <div class="text-sm font-bold border-b pb-2 mb-2">홍기타</div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">기본급</span>
+                                <span>800,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm text-gray-700">
+                                <span class="font-medium">공제합계</span>
+                                <span>120,000원</span>
+                            </div>
+                            <div class="flex justify-between items-center py-1 text-sm font-bold text-blue-800 border-t mt-2 pt-2">
+                                <span class="font-medium">차인 지급액</span>
+                                <span>680,000원</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- 최종 지급액 카드 -->
                     <div class="bg-blue-100 p-4 rounded-lg shadow-sm">
-                        <h3 class="text-md font-bold text-blue-800 border-b border-blue-200 pb-2 mb-2">최종 지급액</h3>
+                        <h3 class="text-md font-bold text-blue-800 border-b border-blue-200 pb-2 mb-2">전체 합계</h3>
                         <div class="flex justify-between items-center text-lg font-bold text-blue-800 py-1">
-                            <span>차인 지급액</span>
-                            <span>4,160,790원</span>
+                            <span>총 지급액</span>
+                            <span>10,860,000원</span>
+                        </div>
+                        <div class="flex justify-between items-center text-lg font-bold text-blue-800 py-1">
+                            <span>총 공제액</span>
+                            <span>839,000원</span>
+                        </div>
+                        <div class="flex justify-between items-center text-lg font-bold text-blue-800 py-1">
+                            <span>총 차인 지급액</span>
+                            <span>10,021,000원</span>
                         </div>
                     </div>
                 </div>
@@ -164,3 +240,4 @@
 
 </body>
 </html>
+
