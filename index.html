@@ -135,7 +135,8 @@
                                 <span>근로소득 (2명)</span>
                             </div>
                             <div class="flex items-center">
-                                <button class="download-button hidden" onclick="downloadPdf('근로소득')">PDF 다운로드</button>
+                                <!-- 이벤트 전파를 막아 부모 요소의 클릭 이벤트를 방지합니다. -->
+                                <button class="download-button hidden" onclick="downloadPdf(event, '근로소득')">PDF 다운로드</button>
                                 <span class="collapsible-icon ml-2 transform transition-transform duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
                                 </span>
@@ -186,7 +187,8 @@
                                 <span>사업소득 (3명)</span>
                             </div>
                             <div class="flex items-center">
-                                <button class="download-button hidden" onclick="downloadPdf('사업소득')">PDF 다운로드</button>
+                                <!-- 이벤트 전파를 막아 부모 요소의 클릭 이벤트를 방지합니다. -->
+                                <button class="download-button hidden" onclick="downloadPdf(event, '사업소득')">PDF 다운로드</button>
                                 <span class="collapsible-icon ml-2 transform transition-transform duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
                                 </span>
@@ -254,7 +256,8 @@
                                 <span>기타소득 (1명)</span>
                             </div>
                             <div class="flex items-center">
-                                <button class="download-button hidden" onclick="downloadPdf('기타소득')">PDF 다운로드</button>
+                                <!-- 이벤트 전파를 막아 부모 요소의 클릭 이벤트를 방지합니다. -->
+                                <button class="download-button hidden" onclick="downloadPdf(event, '기타소득')">PDF 다운로드</button>
                                 <span class="collapsible-icon ml-2 transform transition-transform duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
                                 </span>
@@ -327,7 +330,11 @@
         
         window.jsPDF = window.jspdf.jsPDF;
 
-        function downloadPdf(incomeType) {
+        // downloadPdf 함수가 event 객체를 받도록 수정하고, 이벤트 전파를 막습니다.
+        function downloadPdf(event, incomeType) {
+            // 이벤트 전파를 중단하여 부모 요소의 클릭 이벤트가 실행되지 않도록 합니다.
+            event.stopPropagation();
+
             const element = document.getElementById('income-section-' + incomeType);
             const fileName = `2025년 9월분 ${incomeType} 급여대장.pdf`;
             
